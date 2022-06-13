@@ -5,7 +5,7 @@
 - 📫 You can reach me here --> 
 
 <div id="header" align="center">
-  <img src="https://media.giphy.com/media/ITXgZuGi17YwCQIofC/giphy.gif" width="100"/>
+  <img src="https://media.giphy.com/media/1mhjoh17P9oBJzcjSF/giphy.gif" width="100"/>
 </div>
 
 

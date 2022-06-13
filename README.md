@@ -10,7 +10,7 @@
 - 📫 You can reach me here --> 
 
 <div id="badges">
-  <a href="(https://www.linkedin.com/in/amiel-botbol-49430a93/)">
+  <a href="https://www.linkedin.com/in/amiel-botbol-49430a93/">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
 </div>

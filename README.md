@@ -9,6 +9,11 @@
 - 💞️ I’m looking to collaborate 
 - 📫 You can reach me here --> 
 
+<div id="badges">
+  <a href="[your-linkedin-URL](https://www.linkedin.com/in/amiel-botbol-49430a93/)">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
 
 <!---
 Amidouv/Amidouv is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.

@@ -29,7 +29,8 @@
     <img src="https://github.com/devicons/devicon/blob/master/icons/kubernetes/kubernetes-plain-wordmark.svg" title="Kubernetes" alt="Kubernetes" width="40" height="40"/>&nbsp;
   <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original-wordmark.svg" title="Git" **alt="Git" width="40" height="40"/>
 </div>
-
+  <img src="https://github.com/devicons/devicon/blob/master/icons/argocd/argocd-original-wordmark.svg" title="ArgoCD" **alt="ArgoCD" width="40" height="40"/>
+</div>
 
 <div id="header" align="center">
   <img src="https://media.giphy.com/media/1mhjoh17P9oBJzcjSF/giphy.gif" width="100"/>

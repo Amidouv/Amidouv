@@ -31,6 +31,16 @@
 </div>
   <img src="https://github.com/devicons/devicon/blob/master/icons/argocd/argocd-original-wordmark.svg" title="ArgoCD" **alt="ArgoCD" width="40" height="40"/>
 </div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/bash/bash-original.svg" title="Bash" **alt="Bash" width="40" height="40"/>
+</div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/redhat-original-wordmark.svg" title="RedHat" **alt="RedHat" width="40" height="40"/>
+</div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/selenium/selenium-original.svg" title="selenium" **alt="selenium" width="40" height="40"/>
+</div>
+  <img src="https://github.com/devicons/devicon/blob/master/icons/jenkins/jenkins-original.svg" title="Jenkins" **alt="Jenkins" width="40" height="40"/>
+</div>
+
+
 
 <div id="header" align="center">
   <img src="https://media.giphy.com/media/1mhjoh17P9oBJzcjSF/giphy.gif" width="100"/>

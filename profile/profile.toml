@@ -1,0 +1,80 @@
+# Profile as code. Edit this file; the "Render profile" workflow redraws
+# every SVG in assets/ (or run: python scripts/render_profile.py).
+
+name = "Amiel Botbol"
+role = "Platform & AI Engineer"
+tagline = "I turn observability chaos into code, and alerts into answers."
+
+# Context the weekly AI uses to write the "now building" line.
+now_context = """
+Platform & AI engineer. Current work: AIOps that connects a data lake, Splunk and
+Dynatrace to AWS Bedrock LLMs through MCP servers for alert insights and problem
+prediction; monitoring-as-code delivered through GitLab CI/CD; event-driven hybrid
+integrations on AWS (Lambda, EventBridge, SQS) built with Terraform.
+"""
+
+how_i_work = "End-to-end ownership  ·  Relentless dedication  ·  Loyal to the team and the mission"
+
+skills = [
+  ["AI & AIOps",      "Amazon Bedrock · MCP servers · LLM investigation agents · Prompt engineering"],
+  ["Platform",        "Observability-as-Code · GitLab CI/CD · Self-service onboarding · Kubernetes"],
+  ["Cloud & IaC",     "AWS event-driven (Lambda · EventBridge · SQS) · Terraform · Quali Torque · Hybrid cloud"],
+  ["Observability",   "OpenTelemetry · Dynatrace · Splunk · Prometheus · CloudWatch"],
+]
+
+# ---------------------------------------------------------------------------
+# Wins. Each one renders as an animated architecture card.
+# nodes: [id, label, x, y, color]   (canvas is 880 wide, diagram band y 120-260)
+# edges: [from, to]
+# ---------------------------------------------------------------------------
+
+[[wins]]
+title = "Monitoring-as-Code at scale"
+impact = "−50% operations time and cognitive load  ·  hundreds of services  ·  zero-touch onboarding"
+context = "Large financial-market organization"
+tags = "GitLab CI/CD · Monitoring-as-Code · Per-environment config · Dynatrace · Splunk · Prometheus · OpenTelemetry"
+accent = "#3fb950"
+nodes = [
+  ["git",  "GitLab CI/CD",               110, 190, "#fc6d26"],
+  ["cfg",  "per-env config · dev/stg/prod", 340, 190, "#8b949e"],
+  ["dt",   "Dynatrace",                  700, 130, "#1496ff"],
+  ["spl",  "Splunk",                     700, 170, "#65a637"],
+  ["prom", "Prometheus",                 700, 210, "#e6522c"],
+  ["otel", "OpenTelemetry",              700, 250, "#a371f7"],
+]
+edges = [["git", "cfg"], ["cfg", "dt"], ["cfg", "spl"], ["cfg", "prom"], ["cfg", "otel"]]
+
+[[wins]]
+title = "Event-driven hybrid integration on AWS"
+impact = "~15 SaaS vendors  ·  health polled every 5 min  ·  a heartbeat alarm that watches the watcher"
+context = "Fully codified: networking, firewall and app constraints at every layer"
+tags = "AWS Lambda · EventBridge · SQS · CloudWatch · Terraform · Quali Torque · Git · Hybrid cloud"
+accent = "#ff9900"
+nodes = [
+  ["saas", "~15 SaaS health APIs", 118, 160, "#8b949e"],
+  ["lam",  "Lambda · every 5 min",  305, 160, "#ff9900"],
+  ["eb",   "EventBridge",           460, 160, "#e7157b"],
+  ["sqs",  "SQS",                   600, 160, "#e7157b"],
+  ["mom",  "On-prem MoM",           760, 160, "#3fb950"],
+  ["cw",   "CloudWatch run logs",   305, 240, "#e7157b"],
+  ["hb",   "Heartbeat alarm",       480, 240, "#ff7b72"],
+]
+edges = [["saas", "lam"], ["lam", "eb"], ["eb", "sqs"], ["sqs", "mom"], ["lam", "cw"], ["cw", "hb"]]
+
+[[wins]]
+title = "AIOps: an LLM that investigates incidents"
+impact = "Root causes surfaced automatically  ·  investigation time cut  ·  problems predicted before they page"
+context = "On-prem backend and system prompt, Bedrock reasoning, every session audited"
+tags = "Amazon Bedrock · MCP servers · Data lake · Splunk · Dynatrace · CloudWatch · S3 retention"
+accent = "#a371f7"
+nodes = [
+  ["lake", "Data lake",          90, 130, "#8b949e"],
+  ["spl",  "Splunk",             90, 190, "#65a637"],
+  ["dt",   "Dynatrace",          90, 250, "#1496ff"],
+  ["mcp",  "MCP servers",       290, 190, "#d2a8ff"],
+  ["br",   "Amazon Bedrock LLM", 490, 190, "#a371f7"],
+  ["be",   "On-prem backend + system prompt", 490, 252, "#8b949e"],
+  ["out",  "Full investigation", 735, 160, "#3fb950"],
+  ["aud",  "CloudWatch + S3",    735, 230, "#e7157b"],
+]
+edges = [["lake", "mcp"], ["spl", "mcp"], ["dt", "mcp"], ["mcp", "br"], ["be", "br"], ["br", "out"], ["br", "aud"]]

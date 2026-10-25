@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="276" viewBox="0 0 880 276" role="img" aria-label="Toolbox: AI &amp; AIOps: Amazon Bedrock · MCP servers · LLM investigation agents · Prompt engineering; Platform: Observability-as-Code · GitLab CI/CD · Self-service onboarding · Kubernetes; Cloud &amp; IaC: AWS event-driven (Lambda · EventBridge · SQS) · Terraform · Quali Torque · Hybrid cloud; Observability: OpenTelemetry · Dynatrace · Splunk · Prometheus · CloudWatch">
+<style>
+  text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; }
+  .fade { opacity: 0; animation: fade .6s ease-out forwards; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+</style>
+<rect x=".5" y=".5" width="879" height="275" rx="14" fill="#0d1117" stroke="#30363d"/>
+
+<text x="36" y="40" fill="#e6edf3" font-weight="700" style="font-size:18px">Toolbox</text>
+<g class="fade" style="animation-delay:0.00s"><circle cx="44" cy="75" r="4" fill="#a371f7"/><text x="60" y="80" fill="#e6edf3" font-weight="700" style="font-size:15px">AI &amp; AIOps</text><text x="210" y="80" fill="#8b949e" style="font-size:14px">Amazon Bedrock · MCP servers · LLM investigation agents · Prompt engineering</text></g><g class="fade" style="animation-delay:0.15s"><circle cx="44" cy="115" r="4" fill="#3fb950"/><text x="60" y="120" fill="#e6edf3" font-weight="700" style="font-size:15px">Platform</text><text x="210" y="120" fill="#8b949e" style="font-size:14px">Observability-as-Code · GitLab CI/CD · Self-service onboarding · Kubernetes</text></g><g class="fade" style="animation-delay:0.30s"><circle cx="44" cy="155" r="4" fill="#ff9900"/><text x="60" y="160" fill="#e6edf3" font-weight="700" style="font-size:15px">Cloud &amp; IaC</text><text x="210" y="160" fill="#8b949e" style="font-size:14px">AWS event-driven (Lambda · EventBridge · SQS) · Terraform · Quali Torque · Hybrid cloud</text></g><g class="fade" style="animation-delay:0.45s"><circle cx="44" cy="195" r="4" fill="#79c0ff"/><text x="60" y="200" fill="#e6edf3" font-weight="700" style="font-size:15px">Observability</text><text x="210" y="200" fill="#8b949e" style="font-size:14px">OpenTelemetry · Dynatrace · Splunk · Prometheus · CloudWatch</text></g>
+<line x1="36" y1="230" x2="844" y2="230" stroke="#21262d"/>
+<text x="36" y="256" fill="#e6edf3" style="font-size:14px"><tspan fill="#8b949e">How I work  </tspan>End-to-end ownership  ·  Relentless dedication  ·  Loyal to the team and the mission</text>
+</svg>

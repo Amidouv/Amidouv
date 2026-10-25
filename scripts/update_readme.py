@@ -3,10 +3,14 @@
 
 1. Pulls recent public GitHub events for the profile owner.
 2. Rewrites the ACTIVITY block with a short list of what changed.
-3. If ANTHROPIC_API_KEY is set, asks Claude for a 2-3 sentence,
-   recruiter-friendly summary and rewrites the AI-SUMMARY block.
+3. Asks an LLM for a 2-3 sentence, recruiter-friendly summary and
+   rewrites the AI-SUMMARY block. The LLM backend is:
+   - AWS Bedrock (Converse API) when BEDROCK_MODEL_ID is set and AWS
+     credentials are available (the workflow gets them keylessly via OIDC);
+   - otherwise the Claude API when ANTHROPIC_API_KEY is set;
+   - otherwise the summary is left as is.
 
-Uses only the standard library so the workflow needs no installs.
+Only Bedrock needs a dependency (boto3); everything else is standard library.
 """
 
 import json
@@ -58,19 +62,19 @@ def describe(event):
     return None
 
 
-def summarise(lines):
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key or not lines:
-        return None
-    prompt = (
-        "You write the 'what I'm building right now' blurb on a GitHub profile "
-        f"for {USERNAME}, a DevOps/Cloud engineer moving into AI-augmented "
-        "engineering. From the recent activity below, write 2-3 sentences in "
-        "first person, aimed at a technical R&D recruiter. Be concrete, use "
-        "Markdown bold for key technologies, no hype words, no emojis, and do "
-        "not invent anything that is not in the activity.\n\n"
-        + "\n".join(lines)
+def ask_bedrock(prompt, model_id):
+    import boto3
+
+    client = boto3.client("bedrock-runtime")
+    resp = client.converse(
+        modelId=model_id,
+        messages=[{"role": "user", "content": [{"text": prompt}]}],
+        inferenceConfig={"maxTokens": 300},
     )
+    return "".join(b.get("text", "") for b in resp["output"]["message"]["content"])
+
+
+def ask_claude(prompt, key):
     resp = http_json(
         "https://api.anthropic.com/v1/messages",
         {
@@ -84,7 +88,27 @@ def summarise(lines):
             "messages": [{"role": "user", "content": prompt}],
         },
     )
-    text = "".join(b.get("text", "") for b in resp.get("content", []))
+    return "".join(b.get("text", "") for b in resp.get("content", []))
+
+
+def summarise(lines):
+    bedrock_model = os.environ.get("BEDROCK_MODEL_ID")
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if not lines or not (bedrock_model or key):
+        return None
+    prompt = (
+        "You write the 'what I'm building right now' blurb on a GitHub profile "
+        f"for {USERNAME}, a Platform Engineer, SRE and AWS architect who builds "
+        "generative AI into the platform. From the recent activity below, write 2-3 sentences in "
+        "first person, aimed at a technical R&D recruiter. Be concrete, use "
+        "Markdown bold for key technologies, no hype words, no emojis, and do "
+        "not invent anything that is not in the activity.\n\n"
+        + "\n".join(lines)
+    )
+    if bedrock_model:
+        text = ask_bedrock(prompt, bedrock_model)
+    else:
+        text = ask_claude(prompt, key)
     return text.strip() or None
 
 

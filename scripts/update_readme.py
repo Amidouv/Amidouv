@@ -2,8 +2,8 @@
 """Refresh the AI-generated sections of the profile README.
 
 1. Pulls recent public GitHub events for the profile owner.
-2. Rewrites the ACTIVITY block with a short list of what changed.
-3. Asks an LLM for a 2-3 sentence, recruiter-friendly summary and
+2. Rewrites the ACTIVITY block, if the README has one.
+3. Asks an LLM for a one-sentence, recruiter-friendly summary and
    rewrites the AI-SUMMARY block. The LLM backend is:
    - AWS Bedrock (Converse API) when BEDROCK_MODEL_ID is set and AWS
      credentials are available (the workflow gets them keylessly via OIDC);
@@ -99,8 +99,8 @@ def summarise(lines):
     prompt = (
         "You write the 'what I'm building right now' blurb on a GitHub profile "
         f"for {USERNAME}, a Platform Engineer, SRE and AWS architect who builds "
-        "generative AI into the platform. From the recent activity below, write 2-3 sentences in "
-        "first person, aimed at a technical R&D recruiter. Be concrete, use "
+        "generative AI into the platform. From the recent activity below, write ONE short sentence "
+        "(at most 25 words, no leading 'I am'), present tense, aimed at a technical R&D recruiter. Be concrete, use "
         "Markdown bold for key technologies, no hype words, no emojis, and do "
         "not invent anything that is not in the activity.\n\n"
         + "\n".join(lines)

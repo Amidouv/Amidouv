@@ -1,0 +1,32 @@
+# Profile as code. Edit this file, then run: python scripts/render_profile.py
+# The weekly workflow re-renders the SVGs in assets/ automatically.
+
+name = "Amiel Botbol"
+handle = "amiel"
+role = "Platform Engineer · SRE · AWS Architect"
+focus = "Golden paths · SLOs · Cloud cost · GenAI"
+status = "open to Platform, SRE and R&D roles"
+
+# Real, defensible wins. Each one becomes a line in `cat wins.log`.
+# Leave the list empty to hide the command. Examples of the format:
+#   "Cut release time from 2 h to 12 min with ArgoCD GitOps"
+#   "MTTR down 60% after OpenTelemetry tracing into Dynatrace"
+wins = []
+
+# Spans of the "idea → production" trace: [name, detail, start %, end %]
+trace = [
+  ["git.push",    "GitHub",                         0,  6],
+  ["ci.build",    "Jenkins · GitHub Actions",       6, 26],
+  ["ci.gate",     "tests · scans · policy",        18, 34],
+  ["cd.sync",     "ArgoCD → Kubernetes",           34, 50],
+  ["run",         "AWS · multi-AZ",                50, 100],
+  ["observe",     "OpenTelemetry → Dynatrace · Splunk", 54, 100],
+  ["slo.check",   "error budget: healthy",         66, 80],
+  ["ai.assist",   "Bedrock: incident summary",     80, 96],
+]
+
+[skills]
+platform = "Kubernetes  ArgoCD  Docker  Jenkins  GitHub Actions"
+reliability = "OpenTelemetry  Dynatrace  Splunk  Prometheus"
+cloud = "AWS  Linux/RHEL  IAM  Well-Architected"
+ai = "Bedrock  Claude  Claude Code"

@@ -1,9 +1,12 @@
-name: Update profile README
+name: Render profile
 
 on:
   schedule:
     - cron: "0 6 * * 1" # every Monday 06:00 UTC
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [profile/profile.toml, scripts/render_profile.py]
 
 permissions:
   contents: write
@@ -31,20 +34,26 @@ jobs:
         if: ${{ vars.AWS_ROLE_ARN != '' }}
         run: pip install --quiet boto3
 
-      - name: Refresh AI summary and activity
+      - name: Refresh AI summary
+        continue-on-error: true # never block rendering on the LLM
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BEDROCK_MODEL_ID: ${{ vars.AWS_ROLE_ARN != '' && vars.BEDROCK_MODEL_ID || '' }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TARGET_FILE: profile/now.md
         run: python scripts/update_readme.py
+
+      - name: Render SVGs from profile.toml
+        run: python scripts/render_profile.py
 
       - name: Commit changes
         run: |
-          if git diff --quiet README.md; then
-            echo "README unchanged"
+          git add -A profile assets
+          if git diff --cached --quiet; then
+            echo "Profile unchanged"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -am "chore: refresh AI-generated profile sections"
+          git commit -m "chore: re-render profile"
           git push

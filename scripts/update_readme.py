@@ -20,7 +20,7 @@ import urllib.request
 from pathlib import Path
 
 USERNAME = os.environ.get("GH_USERNAME", "Amidouv")
-README = Path(__file__).resolve().parent.parent / "README.md"
+README = Path(__file__).resolve().parent.parent / os.environ.get("TARGET_FILE", "README.md")
 MODEL = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-5-5")
 MAX_ITEMS = 6
 

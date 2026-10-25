@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="380" viewBox="0 0 880 380" role="img" aria-label="How I ship: a trace from idea to production">
+<style>
+  text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace; font-size: 14px; }
+  .row { opacity: 0; animation: show .4s ease-out forwards; }
+  .bar { transform-box: fill-box; transform-origin: left; transform: scaleX(0); animation: grow .7s cubic-bezier(.2,.8,.2,1) forwards; }
+  .pulse { animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes show { to { opacity: 1; } }
+  @keyframes grow { to { transform: scaleX(1); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+</style>
+<rect width="880" height="380" rx="12" fill="#0d1117" stroke="#30363d"/>
+<text x="24" y="34" fill="#e6edf3" font-weight="700" style="font-size:15px">trace · idea → production</text>
+<text x="856" y="34" text-anchor="end" fill="#8b949e" style="font-size:13px">service <tspan fill="#e6edf3">amiel-platform</tspan>   status <tspan fill="#3fb950" class="pulse">● OK</tspan></text>
+<line x1="324.0" y1="56" x2="324.0" y2="338" stroke="#21262d"/><line x1="457.0" y1="56" x2="457.0" y2="338" stroke="#21262d"/><line x1="590.0" y1="56" x2="590.0" y2="338" stroke="#21262d"/><line x1="723.0" y1="56" x2="723.0" y2="338" stroke="#21262d"/><line x1="856.0" y1="56" x2="856.0" y2="338" stroke="#21262d"/>
+<g class="row" style="animation-delay:0.30s"><text x="24" y="83" fill="#e6edf3">git.push</text><text x="24" y="99" fill="#8b949e" style="font-size:12px">GitHub</text><rect x="324.0" y="72" width="31.9" height="16" rx="4" fill="#79c0ff" class="bar" style="animation-delay:0.30s"/></g>
+<g class="row" style="animation-delay:0.65s"><text x="38" y="117" fill="#e6edf3">ci.build</text><text x="38" y="133" fill="#8b949e" style="font-size:12px">Jenkins · GitHub Actions</text><rect x="355.9" y="106" width="106.4" height="16" rx="4" fill="#d2a8ff" class="bar" style="animation-delay:0.65s"/></g>
+<g class="row" style="animation-delay:1.00s"><text x="38" y="151" fill="#e6edf3">ci.gate</text><text x="38" y="167" fill="#8b949e" style="font-size:12px">tests · scans · policy</text><rect x="419.8" y="140" width="85.1" height="16" rx="4" fill="#d2a8ff" class="bar" style="animation-delay:1.00s"/></g>
+<g class="row" style="animation-delay:1.35s"><text x="38" y="185" fill="#e6edf3">cd.sync</text><text x="38" y="201" fill="#8b949e" style="font-size:12px">ArgoCD → Kubernetes</text><rect x="504.9" y="174" width="85.1" height="16" rx="4" fill="#3fb950" class="bar" style="animation-delay:1.35s"/></g>
+<g class="row" style="animation-delay:1.70s"><text x="38" y="219" fill="#e6edf3">run</text><text x="38" y="235" fill="#8b949e" style="font-size:12px">AWS · multi-AZ</text><rect x="590.0" y="208" width="266.0" height="16" rx="4" fill="#ffa657" class="bar" style="animation-delay:1.70s"/></g>
+<g class="row" style="animation-delay:2.05s"><text x="38" y="253" fill="#e6edf3">observe</text><text x="38" y="269" fill="#8b949e" style="font-size:12px">OpenTelemetry → Dynatrace · Splunk</text><rect x="611.3" y="242" width="244.7" height="16" rx="4" fill="#56d4dd" class="bar" style="animation-delay:2.05s"/></g>
+<g class="row" style="animation-delay:2.40s"><text x="38" y="287" fill="#e6edf3">slo.check</text><text x="38" y="303" fill="#8b949e" style="font-size:12px">error budget: healthy</text><rect x="675.1" y="276" width="74.5" height="16" rx="4" fill="#3fb950" class="bar" style="animation-delay:2.40s"/></g>
+<g class="row" style="animation-delay:2.75s"><text x="38" y="321" fill="#e6edf3">ai.assist</text><text x="38" y="337" fill="#8b949e" style="font-size:12px">Bedrock: incident summary</text><rect x="749.6" y="310" width="85.1" height="16" rx="4" fill="#ff7b72" class="bar" style="animation-delay:2.75s"/></g>
+<text x="24" y="364" fill="#8b949e" style="font-size:12px">every span instrumented with OpenTelemetry · every deploy GitOps · every incident summarised by AI</text>
+</svg>
